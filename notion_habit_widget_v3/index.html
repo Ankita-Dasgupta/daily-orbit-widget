@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Daily Orbit — Circular Habit Tracker</title>
+<meta name="description" content="Interactive eight-habit circular tracker with clickable daily squares and customizable themes.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Daily Orbit — Habit Tracker">
+<meta property="og:description" content="A colorful circular habit tracker with eight editable habits.">
+<meta name="twitter:card" content="player">
+<meta name="twitter:title" content="Daily Orbit — Habit Tracker">
+<meta name="twitter:player" content="https://resplendent-ganache-3c8554.netlify.app/?embed=1">
+<meta name="twitter:player:width" content="740">
+<meta name="twitter:player:height" content="760">
+<link rel="alternate" type="application/json+oembed" href="https://resplendent-ganache-3c8554.netlify.app/oembed.json" title="Daily Orbit">
+<style>
+:root{--bg:#fff;--ink:#6a4e5d;--sub:#aa8a9c;--ring:#edb1c3;--border:#f1d8e0;--panel:#fff8fc;--accent:#df3158;--focus:#f8dce7}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-rounded, 'Avenir Next',Avenir,Inter,system-ui,sans-serif;transition:background .25s,color .25s;min-height:100vh}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:2px}.app{max-width:850px;margin:auto;padding:14px 16px 32px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:10px}.brand{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--sub);font-weight:800}.tools{display:flex;gap:7px;align-items:center}.softbtn{border:1px solid var(--border);background:var(--panel);color:var(--ink);border-radius:999px;padding:9px 14px;font-size:12px;font-weight:700}.softbtn:hover{filter:brightness(.97)}.chart-wrap{width:100%;max-width:650px;margin:0 auto}.chart-wrap svg{width:100%;height:auto;display:block;overflow:visible}.cell{cursor:pointer;stroke:var(--bg);stroke-width:1.05;transition:opacity .12s,fill .12s}.cell:hover{opacity:.64;stroke:var(--ink);stroke-width:1.7}.gridarc{fill:var(--bg);stroke:var(--ring);stroke-width:.75;opacity:.95}.num{fill:var(--sub);font-size:11px;letter-spacing:.01em}.center-month{font-size:18px;font-weight:800;fill:var(--accent)}.center-day{font-size:39px;font-weight:800;fill:var(--ink)}.center-sub{font-size:13px;fill:var(--sub)}.center-note{font-size:12px;fill:var(--sub)}.center-gear{cursor:pointer;fill:var(--accent)}.gap-heading{font-size:12px;font-weight:800;letter-spacing:.13em;fill:var(--sub)}.gap-name{font-size:12.2px;fill:var(--ink)}.gap-dot{stroke:var(--bg);stroke-width:1.4}.legend{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px 18px;max-width:630px;margin:-8px auto 20px}.habit{display:flex;align-items:center;gap:10px;min-width:0;border:1px solid var(--border);border-radius:13px;padding:10px 11px;background:var(--panel)}.swatch{flex:none;width:16px;height:16px;border-radius:5px}.habitname{font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}.habitcount{font-size:11px;color:var(--sub);flex:none}.bottom{font-size:11px;text-align:center;color:var(--sub);line-height:1.6}.overlay{position:fixed;inset:0;background:#2620268c;z-index:30;display:flex;align-items:center;justify-content:center;padding:15px}.modal{width:min(640px,100%);max-height:min(92vh,850px);overflow:auto;border-radius:22px;background:var(--panel);color:var(--ink);padding:23px;box-shadow:0 20px 80px #0003}.modalhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.modal h2{font-size:22px;margin:0}.close{border:0;background:transparent;color:var(--ink);font-size:28px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}.fieldlabel{font-size:11px;letter-spacing:.12em;font-weight:800;color:var(--sub);text-transform:uppercase;margin-bottom:6px}.field{display:block;width:100%;border:1px solid var(--border);background:var(--bg);color:var(--ink);border-radius:10px;padding:10px}.sectionlabel{font-size:12px;letter-spacing:.11em;text-transform:uppercase;color:var(--sub);font-weight:800;margin:22px 0 11px}.habit-edit{display:grid;grid-template-columns:36px 1fr 24px;gap:9px;align-items:center;margin:8px 0}.colorbox{width:36px;height:36px;border-radius:9px;border:1px solid var(--border);background:var(--bg);display:grid;place-items:center;position:relative;overflow:hidden}.colorbox input{position:absolute;inset:-8px;width:55px;height:55px;opacity:0;cursor:pointer}.colorpreview{height:23px;width:23px;border-radius:6px;border:1px solid #0002}.theme-options{display:flex;gap:10px;flex-wrap:wrap}.theme-choice{width:34px;height:34px;border-radius:50%;border:3px solid var(--panel);box-shadow:0 0 0 1px var(--border);background:var(--sample);cursor:pointer}.theme-choice.selected{box-shadow:0 0 0 3px var(--accent)}.modal-actions{display:flex;justify-content:space-between;gap:10px;margin-top:20px}.primary{background:var(--accent);border:0;color:white;font-weight:800;padding:12px 22px;border-radius:12px}.tiny{font-size:11px;color:var(--sub)}.hidden{display:none!important}.toast{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);padding:10px 16px;background:var(--ink);color:var(--bg);border-radius:30px;font-size:12px;pointer-events:none;opacity:0;transition:opacity .3s}.toast.show{opacity:1}@media(max-width:480px){.app{padding:10px 8px 18px}.legend{gap:6px}.habit{padding:8px 7px;gap:6px}.habitname{font-size:11px}.habitcount{font-size:10px}.modal{padding:17px}.brand{font-size:10px}.softbtn{font-size:11px;padding:8px 10px}}
+</style>
+</head>
+<body>
+<main class="app"><header class="topbar"><span class="brand">✳ &nbsp; Daily orbit</span><div class="tools"><button class="softbtn" id="prev" title="Previous month">‹</button><button class="softbtn" id="monthLabel">November 2026</button><button class="softbtn" id="next" title="Next month">›</button><button class="softbtn" id="openSettings" title="Customize habits and colors">⚙ Settings</button></div></header>
+<div class="chart-wrap"><svg id="tracker" viewBox="0 0 700 700" role="group" aria-label="Circular monthly habit tracking grid: click a square to mark one habit on one day"></svg></div><section class="legend" id="legend" aria-label="Habit legend"></section><div class="bottom">Select a square to mark a habit complete. Select it again to undo.<br>Saved automatically in this browser.</div></main>
+<div class="overlay hidden" id="overlay" role="presentation"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle"><header class="modalhead"><h2 id="settingsTitle">Tracker settings</h2><button class="close" id="close" aria-label="Close settings">×</button></header><div class="fields"><div><div class="fieldlabel">Month</div><select id="month" class="field"></select></div><div><div class="fieldlabel">Year</div><input id="year" class="field" type="number" min="1900" max="2200"></div></div><div class="sectionlabel">Your eight habits & colors</div><div id="habitEditors"></div><div class="sectionlabel">Theme</div><div class="theme-options" id="themeOptions"></div><p class="tiny">Everything is editable for free. Your progress is stored locally in this browser (not synchronized across devices).</p><div class="modal-actions"><button class="softbtn" id="clearMonth">Clear this month</button><button class="primary" id="done">Done ✓</button></div></div></div><div class="toast" id="toast" role="status"></div>
+<script>
+(()=>{
+'use strict';
+const NS='http://www.w3.org/2000/svg', KEY='daily-orbit-habits-v1';
+const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+const defaultHabits=['2 Bottles of Water','Gym','Read','Massage','Meditate','Study','Walk','No screens'];
+const palettes={
+ rose:{name:'Rose',accent:'#d93459',ink:'#7d2242',sub:'#b25e75',ring:'#eab5c6',border:'#f0d7e0',panel:'#fff8fb',bg:'#ffffff',colors:['#f9b4c8','#f78fa8','#f95581','#da2858','#ad123e','#790d31','#fad7e1','#e63b65']},
+ sage:{name:'Sage',accent:'#8da966',ink:'#536942',sub:'#98b478',ring:'#d1dcc2',border:'#dbe5d0',panel:'#fbfdf8',bg:'#ffffff',colors:['#bfd998','#a4c87e','#93aa6f','#738c57','#566d45','#394b30','#d2e3b5','#849d65']},
+ pastel:{name:'Pastel',accent:'#b58bc6',ink:'#665472',sub:'#aa94b4',ring:'#ddd0e8',border:'#e5d8ee',panel:'#fcf8ff',bg:'#fff',colors:['#f5a5d7','#9bd7fa','#cbb4f2','#a8dfd0','#ffc3e5','#b49ebd','#fbe1a3','#bba1f8']},
+ peach:{name:'Peach',accent:'#d99078',ink:'#7e5b52',sub:'#bb9a90',ring:'#efcfc5',border:'#f0ded9',panel:'#fffaf7',bg:'#fff',colors:['#ffd0bc','#f8b49b','#ec937b','#da7b6a','#c76563','#a45564','#f7dbc3','#edab8c']},
+ lavender:{name:'Lavender',accent:'#9d80c9',ink:'#5b4b79',sub:'#aa9ac5',ring:'#dad2ef',border:'#e4def3',panel:'#fbf9ff',bg:'#fff',colors:['#dfcaff','#d0b7fa','#b99bed','#9d80db','#8569bd','#70509f','#eee0ff','#a98cdf']},
+ blue:{name:'Blue',accent:'#719bb1',ink:'#335d75',sub:'#89a8bb',ring:'#c7dce9',border:'#d7e5ee',panel:'#f8fcff',bg:'#fff',colors:['#cce6f0','#b0d6e8','#93bfd7','#76a6bf','#5b8ca9','#3c718e','#d7edf8','#84b6d0']},
+ dark:{name:'Dark',accent:'#ff9ac5',ink:'#f4e5f0',sub:'#c7acc0',ring:'#695665',border:'#493943',panel:'#302531',bg:'#211a24',colors:['#ffb2d8','#efa2c5','#e287b7','#c971a6','#b45b92','#984778','#ffd0e6','#db8ab9']}
+};
+let state;try{state=JSON.parse(localStorage.getItem(KEY)||'null')}catch(e){};
+const now=new Date();state={month:now.getMonth(),year:now.getFullYear(),theme:'rose',habits:defaultHabits.map((name,i)=>({name,color:palettes.pastel.colors[i]})),checks:{},...(state||{})};
+if(!Array.isArray(state.habits)||state.habits.length!==8)state.habits=defaultHabits.map((name,i)=>({name,color:palettes.pastel.colors[i]}));
+if(!palettes[state.theme])state.theme='rose';
+const $=id=>document.getElementById(id);const persist=()=>{try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}};
+function theme(){const p=palettes[state.theme];for(const [k,v] of Object.entries(p)){if(typeof v==='string'&&k!=='name')document.documentElement.style.setProperty('--'+k,v)}}
+function polar(r,a){const t=(a-90)*Math.PI/180;return [350+r*Math.cos(t),350+r*Math.sin(t)]}
+function point(r,a){const [x,y]=polar(r,a);return `${x.toFixed(3)},${y.toFixed(3)}`}
+function sector(r0,r1,a0,a1){return `M ${point(r0,a0)} L ${point(r1,a0)} A ${r1} ${r1} 0 ${a1-a0>180?1:0} 1 ${point(r1,a1)} L ${point(r0,a1)} A ${r0} ${r0} 0 ${a1-a0>180?1:0} 0 ${point(r0,a0)} Z`}
+function node(tag,attrs={},contents){const n=document.createElementNS(NS,tag);for(const [k,v] of Object.entries(attrs))n.setAttribute(k,v);if(contents!=null)n.textContent=contents;return n}
+function monthKey(){return state.year+'-'+String(state.month+1).padStart(2,'0')}
+function monthChecks(){const k=monthKey();return state.checks[k]||(state.checks[k]={})}
+function getDone(d,h){return !!monthChecks()[d+'-'+h]}
+function toggle(d,h){const c=monthChecks(),key=d+'-'+h;c[key]=!c[key];persist();render();}
+function render(){theme();$('monthLabel').textContent=months[state.month]+' '+state.year;const days=new Date(state.year,state.month+1,0).getDate(),today=new Date(),isCurrent=today.getMonth()===state.month&&today.getFullYear()===state.year;
+const svg=$('tracker');svg.replaceChildren();svg.appendChild(node('title',{},`Habit tracker for ${months[state.month]} ${state.year}`));
+// Leave an 84-degree gap in the upper-left quadrant. Days run clockwise
+// from the top to the left; the gap is reserved for the eight-habit key.
+const start=0,arc=276,step=arc/days,rMin=173,rMax=304,width=(rMax-rMin)/8;
+// Short gaps between the radial segments make each day individually clickable.
+for(let d=1;d<=days;d++){const a0=start+(d-1)*step+.23,a1=start+d*step-.23;for(let h=0;h<8;h++){const r0=rMin+h*width+.65,r1=rMin+(h+1)*width-.65;let check=getDone(d,h);let path=node('path',{d:sector(r0,r1,a0,a1),class:check?'cell':'gridarc cell',fill:check?state.habits[h].color:'var(--bg)',role:'button',tabindex:0,'aria-label':`${months[state.month]} ${d}: ${state.habits[h].name}, ${check?'complete':'not complete'}`});path.addEventListener('click',()=>toggle(d,h));path.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle(d,h)}});svg.appendChild(path)}
+const middle=start+(d-.5)*step;const [x,y]=polar(324,middle);let label=node('text',{x,y,'text-anchor':'middle','dominant-baseline':'middle',class:'num',transform:`rotate(${middle>90&&middle<270?middle-180:middle},${x},${y})`},String(d));svg.appendChild(label)}
+// Each habit name is aligned precisely with the radial midpoint of its ring.
+// Ring 8 is outermost and appears at the top of the straight radial edge.
+// Small connecting lines show exactly which circular row belongs to the label.
+state.habits.forEach((habit,i)=>{
+  const ringRadius=rMin+(i+.5)*width;
+  const yy=350-ringRadius;
+  const label=habit.name.trim()||`Habit ${i+1}`;
+  svg.appendChild(node('line',{x1:305,y1:yy,x2:348,y2:yy,stroke:habit.color,'stroke-width':1.35,opacity:.82}));
+  svg.appendChild(node('circle',{cx:299,cy:yy,r:4.1,fill:habit.color,class:'gap-dot'}));
+  const txt=node('text',{x:290,y:yy+4.5,'text-anchor':'end',class:'gap-name'},label);
+  // Limit visual width but keep the complete original name as an accessible tooltip.
+  txt.appendChild(node('title',{},label));
+  svg.appendChild(txt);
+});
+let y=269;svg.appendChild(node('text' ,{x:350,y,class:'center-month','text-anchor':'middle'},months[state.month]));let centralDay=isCurrent?today.getDate():'✦';svg.appendChild(node('text',{x:350,y:319,class:'center-day','text-anchor':'middle'},String(centralDay)));svg.appendChild(node('text',{x:350,y:342,class:'center-sub','text-anchor':'middle'},isCurrent?today.toLocaleDateString('en-US',{weekday:'long'}):String(state.year)));
+let doneCount=0,possible=0;for(let d=1;d<=days;d++)for(let h=0;h<8;h++){if(getDone(d,h))doneCount++;possible++}
+svg.appendChild(node('text',{x:350,y:366,class:'center-note','text-anchor':'middle'},`${doneCount} / ${possible} completed`));let gear=node('text',{x:350,y:401,class:'center-gear','text-anchor':'middle','font-size':27,role:'button',tabindex:0,'aria-label':'Open tracker settings'},'⚙');gear.addEventListener('click',openSettings);gear.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openSettings()}});svg.appendChild(gear);
+const legend=$('legend');legend.replaceChildren();state.habits.forEach((h,i)=>{let n=document.createElement('div');n.className='habit';let c=Object.keys(monthChecks()).filter(k=>k.endsWith('-'+i)&&monthChecks()[k]).length;n.innerHTML='<span class="swatch"></span><span class="habitname"></span><span class="habitcount"></span>';n.querySelector('.swatch').style.background=h.color;n.querySelector('.habitname').textContent=h.name;n.querySelector('.habitcount').textContent=`${c}/${days}`;legend.append(n)})}
+function openSettings(){renderSettings();$('overlay').classList.remove('hidden')}
+function closeSettings(){$('overlay').classList.add('hidden');render()}
+function renderSettings(){$('month').value=state.month;$('year').value=state.year;const editors=$('habitEditors');editors.replaceChildren();state.habits.forEach((h,i)=>{const line=document.createElement('div');line.className='habit-edit';const color=document.createElement('label');color.className='colorbox';const preview=document.createElement('span');preview.className='colorpreview';preview.style.background=h.color;const colorInput=document.createElement('input');colorInput.type='color';colorInput.value=h.color;colorInput.setAttribute('aria-label','Color for habit '+(i+1));colorInput.addEventListener('input',()=>{h.color=colorInput.value;preview.style.background=h.color;persist();render()});color.append(preview,colorInput);const inp=document.createElement('input');inp.className='field';inp.value=h.name;inp.maxLength=55;inp.setAttribute('aria-label','Name for habit '+(i+1));inp.addEventListener('input',()=>{h.name=inp.value;persist();render()});const num=document.createElement('span');num.className='tiny';num.textContent=String(i+1);line.append(color,inp,num);editors.append(line)});
+const opts=$('themeOptions');opts.replaceChildren();for(const [k,v] of Object.entries(palettes)){let b=document.createElement('button');b.className='theme-choice'+(state.theme===k?' selected':'');b.style.setProperty('--sample',v.accent);b.title=v.name;b.setAttribute('aria-label',v.name+' theme');b.setAttribute('aria-pressed',state.theme===k);b.addEventListener('click',()=>{state.theme=k;state.habits.forEach((h,i)=>h.color=v.colors[i]);persist();render();renderSettings()});opts.append(b)}}
+function navigate(n){let d=new Date(state.year,state.month+n,1);state.month=d.getMonth();state.year=d.getFullYear();persist();render()}
+$('month').innerHTML=months.map((m,i)=>`<option value="${i}">${m}</option>`).join('');$('month').addEventListener('change',e=>{state.month=+e.target.value;persist();render()});$('year').addEventListener('change',e=>{const y=+e.target.value;if(Number.isInteger(y)&&y>=1900&&y<=2200){state.year=y;persist();render()}});
+$('prev').addEventListener('click',()=>navigate(-1));$('next').addEventListener('click',()=>navigate(1));$('monthLabel').addEventListener('click',openSettings);$('openSettings').addEventListener('click',openSettings);$('close').addEventListener('click',closeSettings);$('done').addEventListener('click',closeSettings);$('overlay').addEventListener('click',e=>{if(e.target===$('overlay'))closeSettings()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSettings()});
+$('clearMonth').addEventListener('click',()=>{if(confirm('Clear all checked habits for '+months[state.month]+' '+state.year+'?')){delete state.checks[monthKey()];persist();render();closeSettings()}});
+// First-run palette defaults to the provided pastel habit colors; choose Rose or Sage for monochrome palettes.
+persist();render();
+})();
+</script></body></html>

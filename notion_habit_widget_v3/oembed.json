@@ -1,0 +1,10 @@
+{
+  "version": "1.0",
+  "type": "rich",
+  "provider_name": "Daily Orbit",
+  "provider_url": "https://resplendent-ganache-3c8554.netlify.app/",
+  "title": "Daily Orbit \u2014 Habit Tracker",
+  "width": 740,
+  "height": 760,
+  "html": "<iframe src=\"https://resplendent-ganache-3c8554.netlify.app/?embed=1\" width=\"740\" height=\"760\" frameborder=\"0\" style=\"border:0\" loading=\"lazy\" title=\"Daily Orbit habit tracker\"></iframe>"
+}
