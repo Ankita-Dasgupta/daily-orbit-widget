@@ -1,12 +1,11 @@
-Daily Orbit — Circular Habit Tracker v3
+Daily Orbit — Circular Habit Tracker v4
 
-Changes:
-- All eight habit names now align with the radial midpoints of their respective rings, with matching color dots and guide lines.
-- The outermost ring corresponds to the top label and the innermost to the bottom label.
-- Existing click-to-track squares and themes remain unchanged.
+New: Hover over any daily box to highlight the entire ring for that habit, its name, connecting line, and summary card. This makes it easy to identify which habit a box belongs to. Click behavior, themes, and saved history remain unchanged.
 
-To update: in your existing Netlify site, open Deploys and drag this folder into the manual deploy area.
+Update your existing GitHub Pages site:
+1. Open the daily-orbit-widget repository in GitHub.
+2. Open the notion_habit_widget_v3 folder.
+3. Use Add file > Upload files and upload the updated index.html from this ZIP, replacing the old index.html in that folder. Commit the change.
+4. Refresh your existing GitHub Pages widget URL and Notion embed. You may need a hard refresh for cached content.
 
-To remove the floating Powered by Netlify badge: open Netlify Project configuration > General > Powered by Netlify badge, turn it OFF and save. No redeployment required. This is a host setting, not an element in the HTML.
-
-Habit history is stored in localStorage for the same domain in your browser. Keeping the same site address preserves data in that browser.
+The hosted URL can remain the same. Existing stored progress stays in the browser on that origin.
